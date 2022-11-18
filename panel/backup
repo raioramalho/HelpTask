@@ -1,0 +1,33 @@
+//AQUI INICIA O DIALOG
+
+echo "<td>\n";
+echo "   <button type=\"button\" class=\"mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent show-modal". $row["idchamado"] . "\">VER</button>\n";
+echo "   <dialog class=\"dialog". $row["idchamado"] . " mdl-dialog\">\n";
+echo "      <div class=\"mdl-dialog__content mdl-card\">\n";
+echo "         <p>\n";
+//DESCRICAO
+echo "            <b>". $row["descricao"] ."</b>\n";
+//
+echo "         </p>\n";
+echo "      </div>\n";
+echo "      <div class=\"mdl-dialog__actions mdl-dialog__actions--full-width\">\n";
+echo "         <button type=\"button\" class=\"mdl-button mdl-button--accent close\">Fechar</button>\n";
+echo "      </div>\n";
+echo "   </dialog>\n";
+
+echo "   <script>\n\n";
+echo "      var dialog". $row["idchamado"] . " = document.querySelector('.dialog". $row["idchamado"] . "');\n";
+echo "      var showModalButton = document.querySelector('.show-modal". $row["idchamado"] . "');\n";
+echo "      if (! dialog". $row["idchamado"] . ".showModal) {\n";
+echo "        dialogPolyfill.registerDialog(dialog". $row["idchamado"] . ");\n";
+echo "      }\n";
+echo "      showModalButton.addEventListener('click', function() {\n";
+echo "        dialog". $row["idchamado"] . ".showModal();\n";
+echo "      });\n";
+echo "      dialog". $row["idchamado"] . ".querySelector('.close').addEventListener('click', function() {\n";
+echo "        dialog". $row["idchamado"] . ".close();\n";
+echo "      });\n";
+echo "   </script>\n\n";
+
+echo "</td>";
+//AQUI TERMINA O DIALOG
